@@ -1,10 +1,9 @@
-function App() {
+import Home from "./pages/Home"
 
+export default function App() {
   return (
-    <>
-      <div className='bg-black'>a</div>
-    </>
+    <main>
+      <Home/>
+    </main>
   )
 }
-
-export default App
