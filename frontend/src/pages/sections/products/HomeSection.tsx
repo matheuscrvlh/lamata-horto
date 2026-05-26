@@ -1,10 +1,10 @@
 // images
-import Carousel from "../components/Carousel"
+import CarouselProducts from "../../../components/CarouselProducts"
 
 export default function HomeSection() {
     return (
       <section>
-        <Carousel />
+        <CarouselProducts />
       </section>  
     )
 }
