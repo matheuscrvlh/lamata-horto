@@ -1,20 +1,38 @@
-import { products } from "../../../data/products"
+import { Link } from 'react-router-dom'
+import { products } from '../../../data/products'
+import ProductCard from '../../../components/ProductCard'
 
 export default function CatalogSection() {
+    const activeProducts = products.filter(p => p.active)
+
     return (
-        <section className='h-full mt-20'>
-            <div className='mx-[10vw]'>
-                <p className='text-dark-green font-semibold text-3xl mb-10'>Catálogo</p>
-                <div className='flex gap-10'>
-                    {products.map(p => (
-                        p.active 
-                            && <div key={p.id}>
-                                    <img src={p.images} alt={p.name} className='w-50 h-90'/>
-                                    <p>{p.name}</p>
-                                    <p>{p.value}</p>
-                                </div>
-                    ))}
+        <section className='py-20 px-6 md:px-[10vw]'>
+            <div className='flex items-end justify-between mb-12'>
+                <div>
+                    <p className='text-xs text-olive tracking-widest uppercase mb-2'>Seleção</p>
+                    <h2 className='font-display text-4xl md:text-5xl text-dark-green'>Catálogo</h2>
                 </div>
+                <Link
+                    to='/produtos'
+                    className='hidden md:block text-sm text-olive hover:text-dark-green transition-colors tracking-wide'
+                >
+                    Ver todos →
+                </Link>
+            </div>
+
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12'>
+                {activeProducts.map(p => (
+                    <ProductCard key={p.id} product={p} />
+                ))}
+            </div>
+
+            <div className='md:hidden mt-10 text-center'>
+                <Link
+                    to='/produtos'
+                    className='text-sm text-olive hover:text-dark-green transition-colors tracking-wide'
+                >
+                    Ver todos os produtos →
+                </Link>
             </div>
         </section>
     )

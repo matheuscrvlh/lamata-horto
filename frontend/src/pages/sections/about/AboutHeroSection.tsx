@@ -1,11 +1,11 @@
-import { CarouselImages } from '../data/carousel'
+import { CarouselImages } from '../../../data/carousel'
 
-export default function CarouselProducts() {
+export default function AboutHeroSection() {
     return (
         <div className='relative w-full h-[50vh] md:h-[60vh] overflow-hidden'>
             <img
-                src={CarouselImages[0].image}
-                alt='Catálogo Lamata'
+                src={CarouselImages[1].image}
+                alt='Sobre a Lamata'
                 className='w-full h-full object-cover'
             />
             <div className='absolute inset-0 bg-dark-green/50' />
@@ -14,7 +14,7 @@ export default function CarouselProducts() {
                     Lamata — Nova Iguaçu
                 </p>
                 <h1 className='font-display text-6xl md:text-8xl text-ivory leading-none'>
-                    Catálogo
+                    Sobre nós
                 </h1>
             </div>
         </div>

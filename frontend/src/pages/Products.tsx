@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useState, useMemo } from 'react'
 
 // components
 import TopBar from "../components/TopBar"
+import Footer from "../components/Footer"
 
 // sections
 import HomeSection from "./sections/products/HomeSection"
@@ -12,28 +13,37 @@ import ProductsSections from "./sections/products/ProductsSections"
 import { products } from '../data/products'
 
 // types
-import type { Product, ProductFilters } from '../types/products'
+import type { ProductFilters } from '../types/products'
 
 export default function Products() {
-    const [productsFiltereds, setProductsFiltereds] = useState<Product[]>([])
     const [filters, setFilters] = useState<ProductFilters>({})
 
-    // onLoad
-    useEffect(() => {
-        setProductsFiltereds(products)
-    }, [])
+    const productsFiltereds = useMemo(() => {
+        return products.filter(p => {
+            if (!p.active) return false
+            if (filters.subCategory && p.subCategory !== filters.subCategory) return false
+            if (filters.brand && p.brand !== filters.brand) return false
+            if (filters.tags?.length && !filters.tags.some(t => p.tags.includes(t))) return false
+            if (filters.minValue !== undefined && p.promotionalValue < filters.minValue) return false
+            if (filters.maxValue !== undefined && p.promotionalValue > filters.maxValue) return false
+            if (filters.featured === true && !p.featured) return false
+            return true
+        })
+    }, [filters])
 
     return (
         <>
             <TopBar />
             <HomeSection />
-            <FiltersSections 
+            <FiltersSections
                 filters={filters}
                 setFilters={setFilters}
+                resultCount={productsFiltereds.length}
             />
-            <ProductsSections 
+            <ProductsSections
                 productsFiltereds={productsFiltereds}
             />
+            <Footer />
         </>
     )
 }
