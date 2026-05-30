@@ -1,6 +1,6 @@
 // images
-import banner1 from '../assets/carousel/1.png'
-import banner2 from '../assets/carousel/2.jpeg'
+import banner1 from '../assets/carousel/1.jpeg'
+import banner2 from '../assets/carousel/2.png'
 
 export const CarouselImages = [
     {

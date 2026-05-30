@@ -12,9 +12,9 @@ export default function AboutHistorySection() {
                 </div>
                 <div className='flex flex-col gap-5 text-sm text-moss leading-relaxed md:pt-16'>
                     <p>
-                        A Lamata nasceu em 2015 da inquietação do botânico Matheus Junger diante
-                        de um mercado que tratava plantas como objetos descartáveis. A ideia era
-                        simples — e completamente diferente de tudo que existia por aqui.
+                        A Lamata nasceu em 2015 de uma ideia de Fernando Rezende, que junto com
+                        seu filho Matheus decidiu criar um horto diferente do que existia por aqui.
+                        Menos pressa, mais cuidado com cada planta.
                     </p>
                     <p>
                         Em vez de velocidade, escolhemos o tempo certo de cada espécie. Em vez de
@@ -24,7 +24,7 @@ export default function AboutHistorySection() {
                     <p>
                         O que começou como um pequeno viveiro em Santa Rita, Nova Iguaçu,
                         se tornou um espaço de referência para quem entende que o verde dentro
-                        de casa não é decoração — é presença.
+                        de casa não é decoração. É presença.
                     </p>
                 </div>
             </div>

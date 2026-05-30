@@ -9,13 +9,17 @@ export default function ContactSection() {
 
                 <div className='flex flex-col sm:flex-row gap-4 mb-10'>
                     <a
-                        href='#'
+                        href='https://wa.me/5521966104173?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20visita%20ao%20Horto%20Lamata.'
+                        target='_blank'
+                        rel='noopener noreferrer'
                         className='bg-dark-green text-ivory text-xs tracking-widest uppercase px-8 py-4 text-center hover:bg-moss transition-colors'
                     >
                         Agendar Visita
                     </a>
                     <a
-                        href='#'
+                        href='https://wa.me/5521966104173?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Horto%20Lamata.'
+                        target='_blank'
+                        rel='noopener noreferrer'
                         className='border border-dark-green text-dark-green text-xs tracking-widest uppercase px-8 py-4 text-center hover:bg-dark-green hover:text-ivory transition-colors'
                     >
                         Falar Conosco

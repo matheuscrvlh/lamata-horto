@@ -1,3 +1,5 @@
+import nossoEspaco from '../../../assets/banners/nossoEspaco.png'
+
 export default function AboutSpaceSection() {
     return (
         <section className='bg-moss py-20 md:py-28 px-6 md:px-[10vw]'>
@@ -10,9 +12,8 @@ export default function AboutSpaceSection() {
                         Um lugar para<br />desacelerar.
                     </h2>
                     <p className='text-eucalyptus text-sm leading-relaxed mb-8'>
-                        Nossas estufas em Santa Rita recebem visitantes com hora marcada de
-                        quinta a domingo. O espaço foi projetado para que você possa caminhar
-                        com calma, observar as espécies no seu ambiente natural de cultivo e
+                        Nosso espaço em Santa Rita recebe visitantes com hora marcada de
+                        quinta a domingo. Venha ver as plantas de perto, tirar suas dúvidas e
                         escolher a que mais combina com você.
                     </p>
                     <div className='grid grid-cols-2 gap-6 text-sm mb-10'>
@@ -32,14 +33,20 @@ export default function AboutSpaceSection() {
                         </div>
                     </div>
                     <a
-                        href='#'
+                        href='https://wa.me/5521966104173?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20visita%20ao%20Horto%20Lamata.'
+                        target='_blank'
+                        rel='noopener noreferrer'
                         className='inline-block text-xs tracking-widest uppercase bg-ivory text-dark-green px-8 py-3.5 hover:bg-stone transition-colors'
                     >
                         Agendar visita
                     </a>
                 </div>
                 <div className='hidden md:block aspect-4/5 bg-dark-green/40 overflow-hidden'>
-                    <div className='w-full h-full bg-eucalyptus/10' />
+                    <img
+                        src={nossoEspaco}
+                        alt='Nosso espaço'
+                        className='w-full h-full object-cover'
+                    />
                 </div>
             </div>
         </section>

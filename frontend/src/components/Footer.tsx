@@ -20,9 +20,14 @@ export default function Footer() {
                 <p className='text-eucalyptus/40 text-xs tracking-wide'>
                     2026 © Lamata — Todos os direitos reservados.
                 </p>
-                <p className='text-eucalyptus/30 text-xs'>
+                <a
+                    href='https://www.mthcode.com.br'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='text-eucalyptus/30 text-xs hover:text-eucalyptus/60 transition-colors'
+                >
                     Desenvolvido por MTHCODE
-                </p>
+                </a>
             </div>
         </footer>
     )

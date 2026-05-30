@@ -1,3 +1,5 @@
+import bannerVisite from '../../../assets/banners/bannerVisite.png'
+
 export default function VisitSection() {
     return (
         <section className='bg-moss py-20 md:py-28 px-6 md:px-[10vw]'>
@@ -11,7 +13,7 @@ export default function VisitSection() {
                     </h2>
                     <p className='text-eucalyptus text-sm leading-relaxed mb-10 max-w-sm'>
                         Nosso espaço em Santa Rita, Nova Iguaçu, recebe visitas com hora marcada.
-                        Caminhe entre as estufas, prove o café da casa e leve uma espécie escolhida
+                        Conheça as plantas de perto, tire suas dúvidas e leve uma espécie escolhida
                         ao seu ritmo.
                     </p>
 
@@ -33,7 +35,11 @@ export default function VisitSection() {
                 </div>
 
                 <div className='hidden md:block aspect-4/5 bg-dark-green/40 overflow-hidden'>
-                    <div className='w-full h-full bg-eucalyptus/10' />
+                    <img
+                        src={bannerVisite}
+                        alt='Espaço Lamata Horto'
+                        className='w-full h-full object-cover'
+                    />
                 </div>
             </div>
         </section>

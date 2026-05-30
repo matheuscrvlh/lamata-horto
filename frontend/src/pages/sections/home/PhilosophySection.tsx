@@ -28,8 +28,8 @@ export default function PhilosophySection() {
                         O verde não é<br />decoração.
                     </h2>
                     <p className='text-eucalyptus text-sm leading-relaxed max-w-sm'>
-                        Fundado em 2015 pelo botânico Matheus Junger, nosso horto nasceu de uma
-                        obsessão simples: trazer para dentro de casa a calma de uma mata bem cuidada.
+                        Fundado em 2015 por Fernando Rezende junto com seu filho Matheus, o horto
+                        nasceu do desejo de cuidar bem de cada planta antes de ela chegar até você.
                     </p>
                 </div>
 

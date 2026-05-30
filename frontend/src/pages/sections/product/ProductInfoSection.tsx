@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import type { Product } from '../../../types/products'
 
-const WHATSAPP_NUMBER = '5521999999999'
+const WHATSAPP_NUMBER = '5521966104173'
 
 const careItems = (p: Product) => [
     { label: 'Luz', value: p.sunlight },
@@ -20,6 +20,7 @@ export default function ProductInfoSection({ product }: Props) {
         `Olá! Tenho interesse na planta "${product.name}" (SKU: ${product.sku}). Podem me ajudar?`
     )
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMsg}`
+    const whatsappVisitaUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá! Gostaria de agendar uma visita ao Horto Lamata.')}`
 
     return (
         <div className='px-6 py-12 md:px-12 md:py-16 flex flex-col gap-8'>
@@ -110,12 +111,14 @@ export default function ProductInfoSection({ product }: Props) {
                 >
                     Falar sobre esta planta
                 </a>
-                <Link
-                    to='/#contato'
+                <a
+                    href={whatsappVisitaUrl}
+                    target='_blank'
+                    rel='noopener noreferrer'
                     className='border border-dark-green text-dark-green text-xs tracking-widest uppercase px-8 py-4 text-center hover:bg-dark-green hover:text-ivory transition-colors'
                 >
                     Agendar visita
-                </Link>
+                </a>
             </div>
 
             {/* Estoque baixo */}

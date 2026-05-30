@@ -1,15 +1,19 @@
+import matheusJunger from '../../../assets/persons/matheusJunger.jpeg'
+
 const team = [
     {
         name: 'Matheus Junger',
         role: 'Fundador',
-        bio: 'Botânico formado pela UFRJ, Matheus passou dez anos estudando a flora da Mata Atlântica antes de fundar a Lamata. Para ele, cada planta carrega uma história de onde veio, como cresceu e como deve ser cuidada.',
+        bio: 'Botânico formado pela UFRJ e fundador da Lamata. Cuida pessoalmente do acervo e do atendimento desde o início.',
         tags: 'Botânico · Paisagista · Lamata desde 2015',
+        photo: matheusJunger,
     },
     {
         name: 'Fernando Rezende',
         role: 'Fundador',
-        bio: 'Responsável pela expansão e operação da Lamata, Fernando traz a visão de negócio que permite ao horto crescer sem abrir mão dos seus princípios. É ele quem garante que cada experiência de compra reflita os valores da marca.',
-        tags: 'Fundador · Gestão & Operações · Lamata desde 2018',
+        bio: 'Criador da Lamata e pai do Matheus. Foi ele quem deu origem ao horto e mantém vivo o espírito do projeto desde o primeiro dia.',
+        tags: 'Fundador · Lamata desde 2015',
+        photo: null,
     },
 ]
 
@@ -26,7 +30,15 @@ export default function AboutTeamSection() {
             <div className='grid md:grid-cols-2 gap-8'>
                 {team.map(member => (
                     <div key={member.name} className='bg-ivory p-8 flex flex-col gap-5'>
-                        <div className='aspect-4/3 bg-eucalyptus/15 w-full' />
+                        <div className='aspect-4/3 bg-eucalyptus/15 w-full overflow-hidden'>
+                            {member.photo && (
+                                <img
+                                    src={member.photo}
+                                    alt={member.name}
+                                    className='w-full h-full object-cover'
+                                />
+                            )}
+                        </div>
                         <div>
                             <p className='text-xs text-olive tracking-widest uppercase mb-2'>
                                 {member.role}

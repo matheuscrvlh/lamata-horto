@@ -8,7 +8,7 @@ interface Props {
 export default function ProductCard({ product }: Props) {
     return (
         <Link to={`/produtos/${product.id}`} className='group block'>
-            <div className='overflow-hidden aspect-3/4 bg-stone/40'>
+            <div className='overflow-hidden aspect-square bg-stone/40'>
                 <img
                     src={product.images}
                     alt={product.name}

@@ -16,7 +16,7 @@ export default function ProductsSections({ productsFiltereds }: Props) {
 
     return (
         <section className='py-16 px-6 md:px-[10vw]'>
-            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-12'>
+            <div className='grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-8 sm:gap-x-6 sm:gap-y-12'>
                 {productsFiltereds.map(p => (
                     <ProductCard key={p.id} product={p} />
                 ))}

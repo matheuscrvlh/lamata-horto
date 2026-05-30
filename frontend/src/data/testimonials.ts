@@ -10,18 +10,18 @@ export const testimonials: Testimonial[] = [
         id: 1,
         name: 'Ana Beatriz',
         location: 'Barra da Tijuca, RJ',
-        text: 'Comprei minha primeira planta na Lamata há dois anos e até hoje recebo orientações do Matheus. Nunca vi um atendimento assim.',
+        text: 'Atendimento nota 10. O Matheus tirou todas as minhas dúvidas e ainda me ajudou a escolher a planta certa pro meu apartamento.',
     },
     {
         id: 2,
         name: 'Ricardo Alves',
         location: 'Botafogo, RJ',
-        text: 'O espaço é incrível. Passei uma tarde inteira entre as estufas e saí com três plantas e muito mais calma do que entrei.',
+        text: 'Plantas de qualidade e preço justo. Já comprei três vezes e todas chegaram em perfeito estado. Recomendo muito.',
     },
     {
         id: 3,
         name: 'Fernanda Costa',
         location: 'São Paulo, SP',
-        text: 'A planta chegou perfeitamente embalada, com um guia de cuidados escrito à mão. Um detalhe que faz toda a diferença.',
+        text: 'Fui bem atendida do começo ao fim. Senti que se importam de verdade com o cliente, não é só vender e acabou.',
     },
 ]

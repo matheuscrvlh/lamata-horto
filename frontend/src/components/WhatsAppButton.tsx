@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = '5521999999999'
+const WHATSAPP_NUMBER = '5521966104173'
 const WHATSAPP_MSG = encodeURIComponent('Olá! Gostaria de saber mais sobre o Horto Lamata.')
 
 export default function WhatsAppButton() {
