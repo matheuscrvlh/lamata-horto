@@ -1,10 +1,17 @@
+import { motion } from 'framer-motion'
 import nossoEspaco from '../../../assets/banners/nossoEspaco.png'
+import { fadeUp, fadeIn, viewport } from '../../../lib/animations'
 
 export default function AboutSpaceSection() {
     return (
-        <section className='bg-moss py-20 md:py-28 px-6 md:px-[10vw]'>
+        <section className='grain-moss py-20 md:py-28 px-6 md:px-[10vw]'>
             <div className='grid md:grid-cols-2 gap-12 md:gap-20 items-center'>
-                <div>
+                <motion.div
+                    variants={fadeUp}
+                    initial='hidden'
+                    whileInView='visible'
+                    viewport={viewport}
+                >
                     <p className='text-xs text-eucalyptus/50 tracking-widest uppercase mb-4'>
                         Nosso espaço
                     </p>
@@ -40,14 +47,21 @@ export default function AboutSpaceSection() {
                     >
                         Agendar visita
                     </a>
-                </div>
-                <div className='hidden md:block aspect-4/5 bg-dark-green/40 overflow-hidden'>
+                </motion.div>
+
+                <motion.div
+                    className='hidden md:block aspect-4/5 bg-dark-green/40 overflow-hidden'
+                    variants={fadeIn}
+                    initial='hidden'
+                    whileInView='visible'
+                    viewport={viewport}
+                >
                     <img
                         src={nossoEspaco}
                         alt='Nosso espaço'
                         className='w-full h-full object-cover'
                     />
-                </div>
+                </motion.div>
             </div>
         </section>
     )

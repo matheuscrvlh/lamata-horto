@@ -8,6 +8,8 @@ import StatsSection from './sections/home/StatsSection'
 import CatalogSection from './sections/home/CatalogSection'
 import VisitSection from './sections/home/VisitSection'
 import PhilosophySection from './sections/home/PhilosophySection'
+import InstagramSection from './sections/home/InstagramSection'
+import AgendamentoSection from './sections/home/AgendamentoSection'
 import TestimonialsSection from './sections/home/TestimonialsSection'
 import ContactSection from './sections/home/ContactSection'
 
@@ -20,6 +22,8 @@ export default function Home() {
             <CatalogSection />
             <VisitSection />
             <PhilosophySection />
+            <InstagramSection />
+            <AgendamentoSection />
             <TestimonialsSection />
             <ContactSection />
             <Footer />

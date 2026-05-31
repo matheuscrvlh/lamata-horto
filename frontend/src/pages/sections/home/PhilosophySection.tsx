@@ -1,3 +1,6 @@
+import { motion } from 'framer-motion'
+import { fadeUp, stagger, viewport } from '../../../lib/animations'
+
 const principles = [
     {
         n: '01',
@@ -18,9 +21,14 @@ const principles = [
 
 export default function PhilosophySection() {
     return (
-        <article className='bg-dark-green py-20 md:py-28 px-6 md:px-[10vw]'>
+        <article className='grain-dark-green py-20 md:py-28 px-6 md:px-[10vw]'>
             <div className='grid md:grid-cols-2 gap-16 md:gap-24 items-start'>
-                <div>
+                <motion.div
+                    variants={fadeUp}
+                    initial='hidden'
+                    whileInView='visible'
+                    viewport={viewport}
+                >
                     <p className='text-xs text-eucalyptus/50 tracking-widest uppercase mb-4'>
                         Filosofia
                     </p>
@@ -31,12 +39,19 @@ export default function PhilosophySection() {
                         Fundado em 2015 por Fernando Rezende junto com seu filho Matheus, o horto
                         nasceu do desejo de cuidar bem de cada planta antes de ela chegar até você.
                     </p>
-                </div>
+                </motion.div>
 
-                <div className='flex flex-col'>
+                <motion.div
+                    className='flex flex-col'
+                    variants={stagger}
+                    initial='hidden'
+                    whileInView='visible'
+                    viewport={viewport}
+                >
                     {principles.map((item, idx) => (
-                        <div
+                        <motion.div
                             key={item.n}
+                            variants={fadeUp}
                             className={`flex gap-6 items-start py-7 ${
                                 idx < principles.length - 1 ? 'border-b border-eucalyptus/15' : ''
                             } ${idx === 0 ? 'border-t border-eucalyptus/15' : ''}`}
@@ -48,9 +63,9 @@ export default function PhilosophySection() {
                                 <p className='text-ivory text-sm font-medium mb-1.5'>{item.title}</p>
                                 <p className='text-eucalyptus text-sm leading-relaxed'>{item.text}</p>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </article>
     )

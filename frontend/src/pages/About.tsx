@@ -9,6 +9,7 @@ import AboutTeamSection from './sections/about/AboutTeamSection'
 import AboutPhilosophySection from './sections/about/AboutPhilosophySection'
 import AboutSpaceSection from './sections/about/AboutSpaceSection'
 import AboutContactSection from './sections/about/AboutContactSection'
+import AgendamentoSection from './sections/home/AgendamentoSection'
 
 export default function About() {
     return (
@@ -19,6 +20,7 @@ export default function About() {
             <AboutTeamSection />
             <AboutPhilosophySection />
             <AboutSpaceSection />
+            <AgendamentoSection />
             <AboutContactSection />
             <Footer />
         </>

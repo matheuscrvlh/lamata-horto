@@ -32,3 +32,29 @@ body {
     color: #0B1F13;
     -webkit-font-smoothing: antialiased;
 }
+
+.grain-moss {
+    position: relative;
+    isolation: isolate;
+    background-image: linear-gradient(150deg, #1C2715 0%, #475833 100%);
+}
+
+.grain-dark-green {
+    position: relative;
+    isolation: isolate;
+    background-image: linear-gradient(150deg, #040D07 0%, #183320 100%);
+}
+
+.grain-moss::before,
+.grain-dark-green::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+    background-repeat: repeat;
+    opacity: 0.18;
+    mix-blend-mode: soft-light;
+    pointer-events: none;
+    z-index: -1;
+}

@@ -1,9 +1,17 @@
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import { fadeUp, viewport } from '../../../lib/animations'
 
 export default function AboutContactSection() {
     return (
         <section id='contato' className='bg-ivory py-24 md:py-32 px-6 md:px-[10vw]'>
-            <div className='max-w-2xl'>
+            <motion.div
+                className='max-w-2xl'
+                variants={fadeUp}
+                initial='hidden'
+                whileInView='visible'
+                viewport={viewport}
+            >
                 <p className='text-xs text-olive tracking-widest uppercase mb-4'>Contato</p>
                 <h2 className='font-display text-5xl md:text-6xl lg:text-7xl text-dark-green leading-tight mb-10'>
                     Vamos plantar<br />algo juntos?
@@ -27,7 +35,7 @@ export default function AboutContactSection() {
                 <p className='text-sage text-sm tracking-wide'>
                     Santa Rita — Nova Iguaçu — RJ
                 </p>
-            </div>
+            </motion.div>
         </section>
     )
 }

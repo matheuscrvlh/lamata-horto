@@ -1,4 +1,6 @@
+import { motion } from 'framer-motion'
 import matheusJunger from '../../../assets/persons/matheusJunger.jpeg'
+import { fadeUp, stagger, viewport } from '../../../lib/animations'
 
 const team = [
     {
@@ -20,16 +22,32 @@ const team = [
 export default function AboutTeamSection() {
     return (
         <section className='bg-stone py-20 md:py-24 px-6 md:px-[10vw]'>
-            <div className='mb-12'>
+            <motion.div
+                className='mb-12'
+                variants={fadeUp}
+                initial='hidden'
+                whileInView='visible'
+                viewport={viewport}
+            >
                 <p className='text-xs text-olive tracking-widest uppercase mb-4'>Equipe</p>
                 <h2 className='font-display text-4xl md:text-5xl text-dark-green leading-tight'>
                     As pessoas por trás<br />do verde.
                 </h2>
-            </div>
+            </motion.div>
 
-            <div className='grid md:grid-cols-2 gap-8'>
+            <motion.div
+                className='grid md:grid-cols-2 gap-8'
+                variants={stagger}
+                initial='hidden'
+                whileInView='visible'
+                viewport={viewport}
+            >
                 {team.map(member => (
-                    <div key={member.name} className='bg-ivory p-8 flex flex-col gap-5'>
+                    <motion.div
+                        key={member.name}
+                        variants={fadeUp}
+                        className='bg-ivory p-8 flex flex-col gap-5'
+                    >
                         <div className='aspect-4/3 bg-eucalyptus/15 w-full overflow-hidden'>
                             {member.photo && (
                                 <img
@@ -53,9 +71,9 @@ export default function AboutTeamSection() {
                                 {member.tags}
                             </p>
                         </div>
-                    </div>
+                    </motion.div>
                 ))}
-            </div>
+            </motion.div>
         </section>
     )
 }
