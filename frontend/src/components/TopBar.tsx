@@ -1,7 +1,13 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-export default function TopBar() {
+interface Props {
+    // 'dark' = topo da página tem fundo escuro (hero carousel, hero about)
+    // 'light' = topo da página tem fundo claro (produto, produtos)
+    initialScheme?: 'dark' | 'light'
+}
+
+export default function TopBar({ initialScheme = 'dark' }: Props) {
     const [menuOpen, setMenuOpen] = useState(false)
     const [scrolled, setScrolled] = useState(false)
 
@@ -10,6 +16,8 @@ export default function TopBar() {
         window.addEventListener('scroll', handler, { passive: true })
         return () => window.removeEventListener('scroll', handler)
     }, [])
+
+    const light = scrolled || menuOpen || initialScheme === 'light'
 
     return (
         <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -21,7 +29,7 @@ export default function TopBar() {
                 <Link
                     to='/'
                     className={`font-display text-2xl font-medium tracking-[0.2em] transition-colors ${
-                        scrolled || menuOpen ? 'text-dark-green' : 'text-ivory'
+                        light ? 'text-dark-green' : 'text-ivory'
                     }`}
                 >
                     LAMATA
@@ -32,7 +40,7 @@ export default function TopBar() {
                     <Link
                         to='/produtos'
                         className={`text-sm tracking-wide transition-colors hover:opacity-70 ${
-                            scrolled ? 'text-moss' : 'text-ivory'
+                            light ? 'text-moss' : 'text-ivory'
                         }`}
                     >
                         Catálogo
@@ -40,7 +48,7 @@ export default function TopBar() {
                     <Link
                         to='/sobre'
                         className={`text-sm tracking-wide transition-colors hover:opacity-70 ${
-                            scrolled ? 'text-moss' : 'text-ivory'
+                            light ? 'text-moss' : 'text-ivory'
                         }`}
                     >
                         Sobre
@@ -48,7 +56,7 @@ export default function TopBar() {
                     <a
                         href='#contato'
                         className={`text-xs tracking-widest uppercase px-6 py-2.5 transition-colors ${
-                            scrolled
+                            light
                                 ? 'bg-dark-green text-ivory hover:bg-moss'
                                 : 'bg-ivory text-dark-green hover:bg-stone'
                         }`}
@@ -64,13 +72,13 @@ export default function TopBar() {
                     aria-label='Abrir menu'
                 >
                     <span className={`block w-6 h-px transition-all duration-300 origin-center ${
-                        menuOpen ? 'rotate-45 translate-y-[7px] bg-dark-green' : scrolled ? 'bg-dark-green' : 'bg-ivory'
+                        menuOpen ? 'rotate-45 translate-y-1.75 bg-dark-green' : light ? 'bg-dark-green' : 'bg-ivory'
                     }`} />
                     <span className={`block w-6 h-px transition-all duration-300 ${
-                        menuOpen ? 'opacity-0 bg-dark-green' : scrolled ? 'bg-dark-green' : 'bg-ivory'
+                        menuOpen ? 'opacity-0 bg-dark-green' : light ? 'bg-dark-green' : 'bg-ivory'
                     }`} />
                     <span className={`block w-6 h-px transition-all duration-300 origin-center ${
-                        menuOpen ? '-rotate-45 -translate-y-[7px] bg-dark-green' : scrolled ? 'bg-dark-green' : 'bg-ivory'
+                        menuOpen ? '-rotate-45 -translate-y-1.75 bg-dark-green' : light ? 'bg-dark-green' : 'bg-ivory'
                     }`} />
                 </button>
             </div>

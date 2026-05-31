@@ -19,7 +19,7 @@ export default function ProductDetail() {
 
     return (
         <>
-            <TopBar />
+            <TopBar initialScheme='light' />
             <main className='min-h-screen pt-16'>
                 <div className='grid md:grid-cols-2 min-h-[calc(100vh-4rem)]'>
                     <ProductImageSection product={product} />
