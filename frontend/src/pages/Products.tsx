@@ -19,14 +19,30 @@ export default function Products() {
     const [filters, setFilters] = useState<ProductFilters>({})
 
     const productsFiltereds = useMemo(() => {
+        const q = filters.search
+            ? filters.search.toLowerCase().trim().normalize('NFD').replace(/[̀-ͯ]/g, '')
+            : ''
         return products.filter(p => {
             if (!p.active) return false
+            if (filters.category && p.category !== filters.category) return false
             if (filters.subCategory && p.subCategory !== filters.subCategory) return false
-            if (filters.brand && p.brand !== filters.brand) return false
-            if (filters.tags?.length && !filters.tags.some(t => p.tags.includes(t))) return false
-            if (filters.minValue !== undefined && p.promotionalValue < filters.minValue) return false
-            if (filters.maxValue !== undefined && p.promotionalValue > filters.maxValue) return false
             if (filters.featured === true && !p.featured) return false
+            if (q) {
+                const haystack = [
+                    p.name,
+                    p.description,
+                    p.shortDescription,
+                    p.subCategory,
+                    p.category,
+                    p.brand,
+                    ...p.tags,
+                ]
+                    .join(' ')
+                    .toLowerCase()
+                    .normalize('NFD')
+                    .replace(/[̀-ͯ]/g, '')
+                if (!haystack.includes(q)) return false
+            }
             return true
         })
     }, [filters])

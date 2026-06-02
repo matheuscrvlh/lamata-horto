@@ -8,92 +8,112 @@ interface Props {
     resultCount: number
 }
 
-const allTags = [...new Set(products.flatMap(p => p.tags))]
-const allSubCategories = [...new Set(products.map(p => p.subCategory))]
+const categoryLabel: Record<string, string> = {
+    planta: 'Plantas',
+    insumo: 'Insumos',
+}
 
-const hasActiveFilters = (f: ProductFilters) =>
-    !!(f.tags?.length || f.subCategory || f.featured || f.minValue !== undefined || f.maxValue !== undefined)
+const allCategories = [...new Set(products.map(p => p.category))]
+
+const subCategoriesFor = (category?: string) =>
+    [...new Set(
+        products
+            .filter(p => !category || p.category === category)
+            .map(p => p.subCategory)
+    )]
+
+const hasActive = (f: ProductFilters) =>
+    !!(f.search || f.category || f.subCategory || f.featured)
 
 export default function FiltersSections({ filters, setFilters, resultCount }: Props) {
-    const toggleTag = (tag: string) => {
-        setFilters(prev => {
-            const existing = prev.tags ?? []
-            return {
-                ...prev,
-                tags: existing.includes(tag)
-                    ? existing.filter(t => t !== tag)
-                    : [...existing, tag],
-            }
-        })
-    }
+    const subCategories = subCategoriesFor(filters.category)
 
-    const toggleSubCategory = (sub: string) => {
+    const setCategory = (cat: string) =>
+        setFilters(prev => ({
+            ...prev,
+            category: prev.category === cat ? undefined : cat,
+            subCategory: undefined,
+        }))
+
+    const setSubCategory = (sub: string) =>
         setFilters(prev => ({
             ...prev,
             subCategory: prev.subCategory === sub ? undefined : sub,
         }))
-    }
 
-    const toggleFeatured = () => {
-        setFilters(prev => ({
-            ...prev,
-            featured: prev.featured ? undefined : true,
-        }))
-    }
+    const toggleFeatured = () =>
+        setFilters(prev => ({ ...prev, featured: prev.featured ? undefined : true }))
 
     const clearAll = () => setFilters({})
 
-    const active = hasActiveFilters(filters)
+    const active = hasActive(filters)
 
     return (
         <section className='sticky top-16 z-40 bg-ivory border-b border-stone'>
             <div className='px-6 md:px-[10vw] py-4'>
-                {/* Desktop layout */}
-                <div className='hidden md:flex items-center gap-6'>
 
-                    {/* SubCategory */}
-                    {allSubCategories.length > 1 && (
-                        <>
-                            <div className='flex gap-2 items-center shrink-0'>
-                                {allSubCategories.map(sub => (
-                                    <button
-                                        key={sub}
-                                        onClick={() => toggleSubCategory(sub)}
-                                        className={`text-xs tracking-widest uppercase px-4 py-2 border transition-colors ${
-                                            filters.subCategory === sub
-                                                ? 'border-dark-green bg-dark-green text-ivory'
-                                                : 'border-stone text-moss hover:border-olive'
-                                        }`}
-                                    >
-                                        {sub}
-                                    </button>
-                                ))}
-                            </div>
-                            <div className='h-4 w-px bg-stone shrink-0' />
-                        </>
-                    )}
+                {/* Desktop */}
+                <div className='hidden md:flex items-center gap-4'>
 
-                    {/* Tags */}
-                    <div className='flex gap-2 items-center flex-wrap'>
-                        <span className='text-xs text-sage tracking-wide shrink-0'>Tags</span>
-                        {allTags.map(tag => (
+                    {/* Search */}
+                    <div className='relative shrink-0'>
+                        <svg
+                            className='absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-sage pointer-events-none'
+                            viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'
+                        >
+                            <circle cx='11' cy='11' r='8' />
+                            <path d='M21 21l-4.35-4.35' />
+                        </svg>
+                        <input
+                            type='text'
+                            placeholder='Buscar produto…'
+                            value={filters.search ?? ''}
+                            onChange={e => setFilters(prev => ({ ...prev, search: e.target.value || undefined }))}
+                            className='pl-8 pr-3 py-2 text-xs text-dark-green placeholder-sage bg-transparent border border-stone hover:border-olive focus:border-dark-green focus:outline-none transition-colors w-44'
+                        />
+                    </div>
+
+                    <div className='h-4 w-px bg-stone shrink-0' />
+
+                    {/* Categoria */}
+                    <div className='flex gap-2 shrink-0'>
+                        {allCategories.map(cat => (
                             <button
-                                key={tag}
-                                onClick={() => toggleTag(tag)}
-                                className={`text-xs tracking-wide px-3 py-1.5 rounded-full border transition-colors capitalize ${
-                                    filters.tags?.includes(tag)
-                                        ? 'border-olive bg-olive text-ivory'
+                                key={cat}
+                                onClick={() => setCategory(cat)}
+                                className={`text-xs tracking-widest uppercase px-4 py-2 border transition-colors ${
+                                    filters.category === cat
+                                        ? 'border-dark-green bg-dark-green text-ivory'
                                         : 'border-stone text-moss hover:border-olive'
                                 }`}
                             >
-                                {tag}
+                                {categoryLabel[cat] ?? cat}
                             </button>
                         ))}
                     </div>
 
                     <div className='h-4 w-px bg-stone shrink-0' />
 
-                    {/* Featured */}
+                    {/* Subcategoria */}
+                    <div className='flex gap-2 items-center flex-wrap'>
+                        {subCategories.map(sub => (
+                            <button
+                                key={sub}
+                                onClick={() => setSubCategory(sub)}
+                                className={`text-xs capitalize tracking-wide px-3 py-1.5 rounded-full border transition-colors ${
+                                    filters.subCategory === sub
+                                        ? 'border-olive bg-olive text-ivory'
+                                        : 'border-stone text-moss hover:border-olive'
+                                }`}
+                            >
+                                {sub}
+                            </button>
+                        ))}
+                    </div>
+
+                    <div className='h-4 w-px bg-stone shrink-0' />
+
+                    {/* Em destaque */}
                     <button
                         onClick={toggleFeatured}
                         className={`flex items-center gap-2 text-xs tracking-wide whitespace-nowrap transition-colors shrink-0 ${
@@ -110,7 +130,7 @@ export default function FiltersSections({ filters, setFilters, resultCount }: Pr
                         Em destaque
                     </button>
 
-                    {/* Spacer + result count + clear */}
+                    {/* Count + limpar */}
                     <div className='ml-auto flex items-center gap-4 shrink-0'>
                         <span className='text-xs text-sage'>
                             {resultCount} {resultCount === 1 ? 'produto' : 'produtos'}
@@ -126,36 +146,57 @@ export default function FiltersSections({ filters, setFilters, resultCount }: Pr
                     </div>
                 </div>
 
-                {/* Mobile layout */}
+                {/* Mobile */}
                 <div className='md:hidden flex flex-col gap-3'>
-                    {/* Tags — horizontal scroll */}
+                    {/* Search mobile */}
+                    <div className='relative'>
+                        <svg
+                            className='absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-sage pointer-events-none'
+                            viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'
+                        >
+                            <circle cx='11' cy='11' r='8' />
+                            <path d='M21 21l-4.35-4.35' />
+                        </svg>
+                        <input
+                            type='text'
+                            placeholder='Buscar produto…'
+                            value={filters.search ?? ''}
+                            onChange={e => setFilters(prev => ({ ...prev, search: e.target.value || undefined }))}
+                            className='w-full pl-8 pr-3 py-2.5 text-xs text-dark-green placeholder-sage bg-transparent border border-stone focus:border-dark-green focus:outline-none transition-colors'
+                        />
+                    </div>
+
                     <div className='flex gap-2 overflow-x-auto pb-1 scrollbar-none'>
-                        {allSubCategories.map(sub => (
+                        {allCategories.map(cat => (
+                            <button
+                                key={cat}
+                                onClick={() => setCategory(cat)}
+                                className={`text-xs tracking-widest uppercase px-4 py-2 border transition-colors shrink-0 ${
+                                    filters.category === cat
+                                        ? 'border-dark-green bg-dark-green text-ivory'
+                                        : 'border-stone text-moss'
+                                }`}
+                            >
+                                {categoryLabel[cat] ?? cat}
+                            </button>
+                        ))}
+
+                        <div className='w-px h-6 bg-stone self-center shrink-0' />
+
+                        {subCategories.map(sub => (
                             <button
                                 key={sub}
-                                onClick={() => toggleSubCategory(sub)}
-                                className={`text-xs tracking-widest uppercase px-4 py-2 border transition-colors shrink-0 ${
+                                onClick={() => setSubCategory(sub)}
+                                className={`text-xs capitalize tracking-wide px-3 py-1.5 rounded-full border transition-colors shrink-0 ${
                                     filters.subCategory === sub
-                                        ? 'border-dark-green bg-dark-green text-ivory'
+                                        ? 'border-olive bg-olive text-ivory'
                                         : 'border-stone text-moss'
                                 }`}
                             >
                                 {sub}
                             </button>
                         ))}
-                        {allTags.map(tag => (
-                            <button
-                                key={tag}
-                                onClick={() => toggleTag(tag)}
-                                className={`text-xs tracking-wide px-3 py-1.5 rounded-full border transition-colors capitalize shrink-0 ${
-                                    filters.tags?.includes(tag)
-                                        ? 'border-olive bg-olive text-ivory'
-                                        : 'border-stone text-moss'
-                                }`}
-                            >
-                                {tag}
-                            </button>
-                        ))}
+
                         <button
                             onClick={toggleFeatured}
                             className={`text-xs tracking-wide px-3 py-1.5 border transition-colors shrink-0 ${
@@ -168,7 +209,6 @@ export default function FiltersSections({ filters, setFilters, resultCount }: Pr
                         </button>
                     </div>
 
-                    {/* Count + clear */}
                     <div className='flex items-center justify-between'>
                         <span className='text-xs text-sage'>
                             {resultCount} {resultCount === 1 ? 'produto' : 'produtos'}
@@ -183,6 +223,7 @@ export default function FiltersSections({ filters, setFilters, resultCount }: Pr
                         )}
                     </div>
                 </div>
+
             </div>
         </section>
     )

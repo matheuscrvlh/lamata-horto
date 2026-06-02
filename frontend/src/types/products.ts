@@ -3,8 +3,8 @@ export interface Product {
     name: string
     description: string
     shortDescription: string
-    value: number
-    promotionalValue: number
+    value?: number
+    promotionalValue?: number
     images: string
     category: string
     subCategory: string
@@ -22,6 +22,7 @@ export interface Product {
 }
 
 export interface ProductFilters {
+    search?: string
     category?: string
     subCategory?: string
     brand?: string

@@ -48,13 +48,19 @@ export default function ProductInfoSection({ product }: Props) {
 
             {/* Preço */}
             <div className='flex items-baseline gap-3'>
-                <span className='font-display text-3xl text-dark-green'>
-                    R$ {product.promotionalValue.toFixed(2).replace('.', ',')}
-                </span>
-                {product.promotionalValue < product.value && (
-                    <span className='text-sage line-through text-sm'>
-                        R$ {product.value.toFixed(2).replace('.', ',')}
-                    </span>
+                {product.promotionalValue != null ? (
+                    <>
+                        <span className='font-display text-3xl text-dark-green'>
+                            R$ {product.promotionalValue.toFixed(2).replace('.', ',')}
+                        </span>
+                        {product.value != null && product.promotionalValue < product.value && (
+                            <span className='text-sage line-through text-sm'>
+                                R$ {product.value.toFixed(2).replace('.', ',')}
+                            </span>
+                        )}
+                    </>
+                ) : (
+                    <span className='text-sage text-sm tracking-wide'>Consultar preço</span>
                 )}
             </div>
 
@@ -109,7 +115,7 @@ export default function ProductInfoSection({ product }: Props) {
                     rel='noopener noreferrer'
                     className='bg-dark-green text-ivory text-xs tracking-widest uppercase px-8 py-4 text-center hover:bg-moss transition-colors flex-1'
                 >
-                    Falar sobre esta planta
+                    Falar sobre este produto
                 </a>
                 <a
                     href={whatsappVisitaUrl}
