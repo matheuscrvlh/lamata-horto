@@ -36,8 +36,13 @@ export default function PhilosophySection() {
                         O verde não é<br />decoração.
                     </h2>
                     <p className='text-eucalyptus text-sm leading-relaxed max-w-sm'>
-                        Fundado em 2015 por Fernando Rezende junto com seu filho Matheus, o horto
-                        nasceu do desejo de cuidar bem de cada planta antes de ela chegar até você.
+                        O Lamata Horto, fundada em 2021, nasceu com a proposta de integrar natureza,
+                        paisagismo e sensações em ambientes que inspiram bem-estar e conexão.
+                    </p>
+                    <p className='text-eucalyptus text-sm leading-relaxed max-w-sm mt-4'>
+                        Especializada em plantas ornamentais, frutíferas, palmeiras, vasos, insumos
+                        e projetos paisagísticos, o Lamata oferece soluções completas para transformar
+                        espaços através da estética, autenticidade e do poder do verde.
                     </p>
                 </motion.div>
 

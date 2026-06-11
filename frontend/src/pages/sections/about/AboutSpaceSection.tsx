@@ -19,25 +19,28 @@ export default function AboutSpaceSection() {
                         Um lugar para<br />desacelerar.
                     </h2>
                     <p className='text-eucalyptus text-sm leading-relaxed mb-8'>
-                        Nosso espaço em Santa Rita recebe visitantes com hora marcada de
-                        quinta a domingo. Venha ver as plantas de perto, tirar suas dúvidas e
-                        escolher a que mais combina com você.
+                        Um espaço pensado para quem busca beleza, tranquilidade e conexão com a natureza.
+                        Agende sua visita, estamos ansiosos para conhecê-los.
                     </p>
-                    <div className='grid grid-cols-2 gap-6 text-sm mb-10'>
-                        <div>
-                            <p className='text-xs text-eucalyptus/50 tracking-widest uppercase mb-2'>
-                                Funcionamento
-                            </p>
-                            <p className='text-ivory'>Qui — Dom</p>
-                            <p className='text-eucalyptus'>Com hora marcada</p>
+                    <div className='flex flex-col gap-4 mb-10'>
+                        <div className='flex gap-10'>
+                            <div>
+                                <p className='text-xs text-eucalyptus/50 tracking-widest uppercase mb-2'>
+                                    Seg — Sex
+                                </p>
+                                <p className='text-ivory text-sm'>08h às 17h</p>
+                            </div>
+                            <div className='border-l border-eucalyptus/20 pl-10'>
+                                <p className='text-xs text-eucalyptus/50 tracking-widest uppercase mb-2'>
+                                    Sábado
+                                </p>
+                                <p className='text-ivory text-sm'>08h às 12h</p>
+                            </div>
                         </div>
-                        <div>
-                            <p className='text-xs text-eucalyptus/50 tracking-widest uppercase mb-2'>
-                                Endereço
-                            </p>
-                            <p className='text-ivory'>Santa Rita</p>
-                            <p className='text-eucalyptus'>Nova Iguaçu — RJ</p>
-                        </div>
+                        <p className='text-eucalyptus/70 text-xs leading-relaxed'>
+                            Estr. de Adrianópolis, 3180 — Vila Nossa Sra. da Conceição<br />
+                            Nova Iguaçu — RJ, 26090-005
+                        </p>
                     </div>
                     <a
                         href='https://wa.me/5521966104173?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20visita%20ao%20Horto%20Lamata.'

@@ -43,8 +43,9 @@ export default function AboutContactSection() {
                         Grupo Lamata
                     </a>
                 </div>
-                <p className='text-sage text-sm tracking-wide'>
-                    Santa Rita — Nova Iguaçu — RJ
+                <p className='text-sage text-sm tracking-wide leading-relaxed'>
+                    Estr. de Adrianópolis, 3180 — Vila Nossa Sra. da Conceição<br />
+                    Nova Iguaçu — RJ, 26090-005
                 </p>
             </motion.div>
         </section>

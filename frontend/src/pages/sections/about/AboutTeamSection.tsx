@@ -7,14 +7,14 @@ const team = [
         name: 'Matheus Junger',
         role: 'Fundador',
         bio: 'Botânico formado pela UFRJ e fundador da Lamata. Cuida pessoalmente do acervo e do atendimento desde o início.',
-        tags: 'Botânico · Paisagista · Lamata desde 2015',
+        tags: 'Botânico · Paisagista · Lamata desde 2021',
         photo: matheusJunger,
     },
     {
         name: 'Fernando Rezende',
         role: 'Fundador',
         bio: 'Criador da Lamata e pai do Matheus. Foi ele quem deu origem ao horto e mantém vivo o espírito do projeto desde o primeiro dia.',
-        tags: 'Fundador · Lamata desde 2015',
+        tags: 'Fundador · Lamata desde 2021',
         photo: null,
     },
 ]
