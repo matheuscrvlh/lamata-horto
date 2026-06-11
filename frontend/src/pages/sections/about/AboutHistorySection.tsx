@@ -27,19 +27,13 @@ export default function AboutHistorySection() {
                     viewport={viewport}
                 >
                     <motion.p variants={fadeUp}>
-                        A Lamata nasceu em 2015 de uma ideia de Fernando Rezende, que junto com
-                        seu filho Matheus decidiu criar um horto diferente do que existia por aqui.
-                        Menos pressa, mais cuidado com cada planta.
+                        O Lamata Horto, fundada em 2021, nasceu com a proposta de integrar natureza,
+                        paisagismo e sensações em ambientes que inspiram bem-estar e conexão.
                     </motion.p>
                     <motion.p variants={fadeUp}>
-                        Em vez de velocidade, escolhemos o tempo certo de cada espécie. Em vez de
-                        escala, escolhemos procedência. Em vez de apenas vender, decidimos
-                        acompanhar cada planta por pelo menos um ano após a adoção.
-                    </motion.p>
-                    <motion.p variants={fadeUp}>
-                        O que começou como um pequeno viveiro em Santa Rita, Nova Iguaçu,
-                        se tornou um espaço de referência para quem entende que o verde dentro
-                        de casa não é decoração. É presença.
+                        Especializada em plantas ornamentais, frutíferas, palmeiras, vasos, insumos
+                        e projetos paisagísticos, o Lamata oferece soluções completas para transformar
+                        espaços através da estética, autenticidade e do poder do verde.
                     </motion.p>
                 </motion.div>
             </div>

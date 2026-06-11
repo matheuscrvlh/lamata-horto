@@ -16,28 +16,32 @@ export default function VisitSection() {
                         Visite
                     </p>
                     <h2 className='font-display text-3xl md:text-4xl lg:text-5xl text-ivory leading-tight mb-4'>
-                        Um pedaço de mata<br />cultivado à mão.
+                        Natureza e bem-estar.
                     </h2>
                     <p className='text-eucalyptus text-sm leading-relaxed mb-7 max-w-sm'>
-                        Nosso espaço em Santa Rita, Nova Iguaçu, recebe visitas com hora marcada.
-                        Conheça as plantas de perto, tire suas dúvidas e leve uma espécie escolhida
-                        ao seu ritmo.
+                        Um espaço pensado para quem busca beleza, tranquilidade e conexão com a natureza.
+                        Agende sua visita, estamos ansiosos para conhecê-los.
                     </p>
 
-                    <div className='flex gap-10'>
-                        <div>
-                            <p className='text-xs text-eucalyptus/50 tracking-widest uppercase mb-2'>
-                                Dias
-                            </p>
-                            <p className='text-ivory text-sm'>Qui — Dom</p>
+                    <div className='flex flex-col gap-4'>
+                        <div className='flex gap-10'>
+                            <div>
+                                <p className='text-xs text-eucalyptus/50 tracking-widest uppercase mb-2'>
+                                    Seg — Sex
+                                </p>
+                                <p className='text-ivory text-sm'>08h às 17h</p>
+                            </div>
+                            <div className='border-l border-eucalyptus/20 pl-10'>
+                                <p className='text-xs text-eucalyptus/50 tracking-widest uppercase mb-2'>
+                                    Sábado
+                                </p>
+                                <p className='text-ivory text-sm'>08h às 12h</p>
+                            </div>
                         </div>
-                        <div className='border-l border-eucalyptus/20 pl-10'>
-                            <p className='text-xs text-eucalyptus/50 tracking-widest uppercase mb-2'>
-                                Local
-                            </p>
-                            <p className='text-ivory text-sm'>Santa Rita</p>
-                            <p className='text-eucalyptus text-sm'>Nova Iguaçu — RJ</p>
-                        </div>
+                        <p className='text-eucalyptus/70 text-xs leading-relaxed max-w-sm'>
+                            Estr. de Adrianópolis, 3180 — Vila Nossa Sra. da Conceição<br />
+                            Nova Iguaçu — RJ, 26090-005
+                        </p>
                     </div>
                 </motion.div>
 

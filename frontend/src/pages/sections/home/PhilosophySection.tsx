@@ -4,18 +4,18 @@ import { fadeUp, stagger, viewport } from '../../../lib/animations'
 const principles = [
     {
         n: '01',
-        title: 'Cultivo lento',
-        text: 'Nada é forçado. Respeitamos o ciclo de cada espécie, do estaquio à entrega.',
+        title: 'Atendimento personalizado',
+        text: 'Ajudamos você a escolher e cuidar das plantas ideais para o seu espaço e rotina.',
     },
     {
         n: '02',
-        title: 'Origem rastreável',
-        text: 'Sementes e mudas com procedência conhecida, sem extração predatória.',
+        title: 'Presentes que permanecem vivos.',
+        text: 'Crie arranjos personalizados para surpreender com natureza e significado.',
     },
     {
         n: '03',
-        title: 'Acompanhamento',
-        text: 'Um ano de consultoria pós-adoção, com nosso paisagista por mensagem.',
+        title: 'Experiência que continua',
+        text: 'Da escolha aos cuidados diários, oferecemos suporte, manutenção e produtos para o desenvolvimento saudável das plantas.',
     },
 ]
 
