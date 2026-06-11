@@ -27,7 +27,7 @@ export default function VisitSection() {
                         <div className='flex gap-10'>
                             <div>
                                 <p className='text-xs text-eucalyptus/50 tracking-widest uppercase mb-2'>
-                                    Seg — Sex
+                                    Seg — Sexta
                                 </p>
                                 <p className='text-ivory text-sm'>08h às 17h</p>
                             </div>
